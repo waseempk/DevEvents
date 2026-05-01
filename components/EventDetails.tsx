@@ -42,8 +42,8 @@ export async function EventTags ({ tags }: { tags: string[] }) {
 }
 
 export default async function EventDetails ({ params }: { params: Promise<string> })  {
-   // 'use cache'
-    //cacheLife('hours');
+    'use cache'
+    cacheLife('hours');
     const slug = await params;
 
     let event;
