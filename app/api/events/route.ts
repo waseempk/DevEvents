@@ -4,6 +4,7 @@ import { v2 as cloudinary } from 'cloudinary';
 import connectDB from "@/lib/mongodb";
 import Event from '@/database/event.model';
 
+
 export async function POST(req: NextRequest) {
     try {
         await connectDB();
@@ -43,7 +44,7 @@ export async function POST(req: NextRequest) {
             tags: tags,
             agenda: agenda,
         });
-
+        
         return NextResponse.json({ message: 'Event created successfully', event: createdEvent }, { status: 201 });
     } catch (e) {
         console.error(e);
@@ -53,6 +54,7 @@ export async function POST(req: NextRequest) {
 
 export async function GET() {
     try {
+      
         await connectDB();
 
         const events = await Event.find().sort({ createdAt: -1 });
